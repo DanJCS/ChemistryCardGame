@@ -1,0 +1,1619 @@
+{
+  "metadata": {
+    "deck_name": "Chemistry Reactivity — Standard Classroom Set",
+    "description": "A 34-card deck built from 22 element types. Some high-connectivity elements have 2 copies (H, O, Cl, C, N, S, Na, K, Ca, Fe, Cu, Zn). Singles for Li, Mg, Al, Ag, B, Si, F, Br, I, P. Legal plays: match by group OR play any set of 2–4 distinct elements that forms a real compound family.",
+    "rules_notes": [
+      "Multi-card plays may include at most one of each element type (no stoichiometric repeats)."
+    ],
+    "last_updated": "2025-10-21T12:50:40.682729Z"
+  },
+  "elements": [
+    {
+      "symbol": "Li",
+      "name": "Lithium",
+      "group": 1,
+      "family": "alkali metal",
+      "category": "metal",
+      "count": 1,
+      "binary_partners": [
+        "Br",
+        "Cl",
+        "F",
+        "H",
+        "I",
+        "O"
+      ]
+    },
+    {
+      "symbol": "Na",
+      "name": "Sodium",
+      "group": 1,
+      "family": "alkali metal",
+      "category": "metal",
+      "count": 2,
+      "binary_partners": [
+        "Br",
+        "Cl",
+        "F",
+        "H",
+        "I",
+        "O"
+      ]
+    },
+    {
+      "symbol": "K",
+      "name": "Potassium",
+      "group": 1,
+      "family": "alkali metal",
+      "category": "metal",
+      "count": 2,
+      "binary_partners": [
+        "Br",
+        "Cl",
+        "F",
+        "H",
+        "I",
+        "O"
+      ]
+    },
+    {
+      "symbol": "Mg",
+      "name": "Magnesium",
+      "group": 2,
+      "family": "alkaline earth metal",
+      "category": "metal",
+      "count": 1,
+      "binary_partners": [
+        "Br",
+        "Cl",
+        "F",
+        "H",
+        "I",
+        "N",
+        "O",
+        "S"
+      ]
+    },
+    {
+      "symbol": "Ca",
+      "name": "Calcium",
+      "group": 2,
+      "family": "alkaline earth metal",
+      "category": "metal",
+      "count": 2,
+      "binary_partners": [
+        "Br",
+        "Cl",
+        "F",
+        "H",
+        "I",
+        "O",
+        "S"
+      ]
+    },
+    {
+      "symbol": "Al",
+      "name": "Aluminium",
+      "group": 13,
+      "family": "boron group",
+      "category": "post-transition metal",
+      "count": 1,
+      "binary_partners": [
+        "Br",
+        "Cl",
+        "F",
+        "I",
+        "O",
+        "S"
+      ]
+    },
+    {
+      "symbol": "Fe",
+      "name": "Iron",
+      "group": 8,
+      "family": "transition metal",
+      "category": "metal",
+      "count": 2,
+      "binary_partners": [
+        "Br",
+        "Cl",
+        "F",
+        "O",
+        "S"
+      ]
+    },
+    {
+      "symbol": "Cu",
+      "name": "Copper",
+      "group": 11,
+      "family": "transition metal",
+      "category": "metal",
+      "count": 2,
+      "binary_partners": [
+        "Br",
+        "Cl",
+        "F",
+        "I",
+        "O",
+        "S"
+      ]
+    },
+    {
+      "symbol": "Zn",
+      "name": "Zinc",
+      "group": 12,
+      "family": "transition metal",
+      "category": "metal",
+      "count": 2,
+      "binary_partners": [
+        "Br",
+        "Cl",
+        "F",
+        "I",
+        "O",
+        "S"
+      ]
+    },
+    {
+      "symbol": "Ag",
+      "name": "Silver",
+      "group": 11,
+      "family": "transition metal",
+      "category": "metal",
+      "count": 1,
+      "binary_partners": [
+        "Br",
+        "Cl",
+        "F",
+        "I",
+        "O",
+        "S"
+      ]
+    },
+    {
+      "symbol": "B",
+      "name": "Boron",
+      "group": 13,
+      "family": "boron group",
+      "category": "metalloid",
+      "count": 1,
+      "binary_partners": [
+        "Cl",
+        "F",
+        "O"
+      ]
+    },
+    {
+      "symbol": "Si",
+      "name": "Silicon",
+      "group": 14,
+      "family": "carbon group",
+      "category": "metalloid",
+      "count": 1,
+      "binary_partners": [
+        "Cl",
+        "F",
+        "O"
+      ]
+    },
+    {
+      "symbol": "H",
+      "name": "Hydrogen",
+      "group": 1,
+      "family": "-",
+      "category": "nonmetal",
+      "count": 2,
+      "binary_partners": [
+        "Br",
+        "C",
+        "Ca",
+        "Cl",
+        "F",
+        "I",
+        "K",
+        "Li",
+        "Mg",
+        "N",
+        "Na",
+        "O",
+        "P",
+        "S"
+      ]
+    },
+    {
+      "symbol": "C",
+      "name": "Carbon",
+      "group": 14,
+      "family": "carbon group",
+      "category": "nonmetal",
+      "count": 2,
+      "binary_partners": [
+        "Cl",
+        "H",
+        "N",
+        "O",
+        "S"
+      ]
+    },
+    {
+      "symbol": "N",
+      "name": "Nitrogen",
+      "group": 15,
+      "family": "pnictogen",
+      "category": "nonmetal",
+      "count": 2,
+      "binary_partners": [
+        "C",
+        "H",
+        "Mg",
+        "O"
+      ]
+    },
+    {
+      "symbol": "O",
+      "name": "Oxygen",
+      "group": 16,
+      "family": "chalcogen",
+      "category": "nonmetal",
+      "count": 2,
+      "binary_partners": [
+        "Ag",
+        "Al",
+        "B",
+        "C",
+        "Ca",
+        "Cu",
+        "Fe",
+        "H",
+        "K",
+        "Li",
+        "Mg",
+        "N",
+        "Na",
+        "P",
+        "S",
+        "Si",
+        "Zn"
+      ]
+    },
+    {
+      "symbol": "F",
+      "name": "Fluorine",
+      "group": 17,
+      "family": "halogen",
+      "category": "nonmetal",
+      "count": 1,
+      "binary_partners": [
+        "Ag",
+        "Al",
+        "B",
+        "Br",
+        "Ca",
+        "Cl",
+        "Cu",
+        "Fe",
+        "H",
+        "I",
+        "K",
+        "Li",
+        "Mg",
+        "Na",
+        "Si",
+        "Zn"
+      ]
+    },
+    {
+      "symbol": "Cl",
+      "name": "Chlorine",
+      "group": 17,
+      "family": "halogen",
+      "category": "nonmetal",
+      "count": 2,
+      "binary_partners": [
+        "Ag",
+        "Al",
+        "B",
+        "Br",
+        "C",
+        "Ca",
+        "Cu",
+        "F",
+        "Fe",
+        "H",
+        "I",
+        "K",
+        "Li",
+        "Mg",
+        "Na",
+        "P",
+        "Si",
+        "Zn"
+      ]
+    },
+    {
+      "symbol": "Br",
+      "name": "Bromine",
+      "group": 17,
+      "family": "halogen",
+      "category": "nonmetal",
+      "count": 1,
+      "binary_partners": [
+        "Ag",
+        "Al",
+        "Ca",
+        "Cl",
+        "Cu",
+        "F",
+        "Fe",
+        "H",
+        "I",
+        "K",
+        "Li",
+        "Mg",
+        "Na",
+        "Zn"
+      ]
+    },
+    {
+      "symbol": "I",
+      "name": "Iodine",
+      "group": 17,
+      "family": "halogen",
+      "category": "nonmetal",
+      "count": 1,
+      "binary_partners": [
+        "Ag",
+        "Al",
+        "Br",
+        "Ca",
+        "Cl",
+        "Cu",
+        "F",
+        "H",
+        "K",
+        "Li",
+        "Mg",
+        "Na",
+        "Zn"
+      ]
+    },
+    {
+      "symbol": "S",
+      "name": "Sulfur",
+      "group": 16,
+      "family": "chalcogen",
+      "category": "nonmetal",
+      "count": 2,
+      "binary_partners": [
+        "Ag",
+        "Al",
+        "C",
+        "Ca",
+        "Cu",
+        "Fe",
+        "H",
+        "Mg",
+        "O",
+        "Zn"
+      ]
+    },
+    {
+      "symbol": "P",
+      "name": "Phosphorus",
+      "group": 15,
+      "family": "pnictogen",
+      "category": "nonmetal",
+      "count": 1,
+      "binary_partners": [
+        "Cl",
+        "H",
+        "O"
+      ]
+    }
+  ],
+  "combos": {
+    "binary": [
+      {
+        "elements": [
+          "Ag",
+          "Br"
+        ],
+        "example": "AgBr"
+      },
+      {
+        "elements": [
+          "Ag",
+          "Cl"
+        ],
+        "example": "AgCl"
+      },
+      {
+        "elements": [
+          "Ag",
+          "F"
+        ],
+        "example": "AgF"
+      },
+      {
+        "elements": [
+          "Ag",
+          "I"
+        ],
+        "example": "AgI"
+      },
+      {
+        "elements": [
+          "Ag",
+          "O"
+        ],
+        "example": "Ag2O"
+      },
+      {
+        "elements": [
+          "Ag",
+          "S"
+        ],
+        "example": "Ag2S"
+      },
+      {
+        "elements": [
+          "Al",
+          "Br"
+        ],
+        "example": "AlBr3"
+      },
+      {
+        "elements": [
+          "Al",
+          "Cl"
+        ],
+        "example": "AlCl3"
+      },
+      {
+        "elements": [
+          "Al",
+          "F"
+        ],
+        "example": "AlF3"
+      },
+      {
+        "elements": [
+          "Al",
+          "I"
+        ],
+        "example": "AlI3"
+      },
+      {
+        "elements": [
+          "Al",
+          "O"
+        ],
+        "example": "Al2O3"
+      },
+      {
+        "elements": [
+          "Al",
+          "S"
+        ],
+        "example": "Al2S3"
+      },
+      {
+        "elements": [
+          "B",
+          "Cl"
+        ],
+        "example": "BCl3"
+      },
+      {
+        "elements": [
+          "B",
+          "F"
+        ],
+        "example": "BF3"
+      },
+      {
+        "elements": [
+          "B",
+          "O"
+        ],
+        "example": "B2O3"
+      },
+      {
+        "elements": [
+          "Br",
+          "Ca"
+        ],
+        "example": "CaBr2"
+      },
+      {
+        "elements": [
+          "Br",
+          "Cl"
+        ],
+        "example": "BrCl"
+      },
+      {
+        "elements": [
+          "Br",
+          "Cu"
+        ],
+        "example": "CuBr2"
+      },
+      {
+        "elements": [
+          "Br",
+          "F"
+        ],
+        "example": "BrF3"
+      },
+      {
+        "elements": [
+          "Br",
+          "Fe"
+        ],
+        "example": "FeBr2"
+      },
+      {
+        "elements": [
+          "Br",
+          "H"
+        ],
+        "example": "HBr"
+      },
+      {
+        "elements": [
+          "Br",
+          "I"
+        ],
+        "example": "IBr"
+      },
+      {
+        "elements": [
+          "Br",
+          "K"
+        ],
+        "example": "KBr"
+      },
+      {
+        "elements": [
+          "Br",
+          "Li"
+        ],
+        "example": "LiBr"
+      },
+      {
+        "elements": [
+          "Br",
+          "Mg"
+        ],
+        "example": "MgBr2"
+      },
+      {
+        "elements": [
+          "Br",
+          "Na"
+        ],
+        "example": "NaBr"
+      },
+      {
+        "elements": [
+          "Br",
+          "Zn"
+        ],
+        "example": "ZnBr2"
+      },
+      {
+        "elements": [
+          "C",
+          "Cl"
+        ],
+        "example": "CCl4"
+      },
+      {
+        "elements": [
+          "C",
+          "H"
+        ],
+        "example": "CH4"
+      },
+      {
+        "elements": [
+          "C",
+          "N"
+        ],
+        "example": "C3N4"
+      },
+      {
+        "elements": [
+          "C",
+          "O"
+        ],
+        "example": "CO2"
+      },
+      {
+        "elements": [
+          "C",
+          "S"
+        ],
+        "example": "CS2"
+      },
+      {
+        "elements": [
+          "Ca",
+          "Cl"
+        ],
+        "example": "CaCl2"
+      },
+      {
+        "elements": [
+          "Ca",
+          "F"
+        ],
+        "example": "CaF2"
+      },
+      {
+        "elements": [
+          "Ca",
+          "H"
+        ],
+        "example": "CaH2"
+      },
+      {
+        "elements": [
+          "Ca",
+          "I"
+        ],
+        "example": "CaI2"
+      },
+      {
+        "elements": [
+          "Ca",
+          "O"
+        ],
+        "example": "CaO"
+      },
+      {
+        "elements": [
+          "Ca",
+          "S"
+        ],
+        "example": "CaS"
+      },
+      {
+        "elements": [
+          "Cl",
+          "Cu"
+        ],
+        "example": "CuCl2"
+      },
+      {
+        "elements": [
+          "Cl",
+          "F"
+        ],
+        "example": "ClF"
+      },
+      {
+        "elements": [
+          "Cl",
+          "Fe"
+        ],
+        "example": "FeCl3"
+      },
+      {
+        "elements": [
+          "Cl",
+          "H"
+        ],
+        "example": "HCl"
+      },
+      {
+        "elements": [
+          "Cl",
+          "I"
+        ],
+        "example": "ICl"
+      },
+      {
+        "elements": [
+          "Cl",
+          "K"
+        ],
+        "example": "KCl"
+      },
+      {
+        "elements": [
+          "Cl",
+          "Li"
+        ],
+        "example": "LiCl"
+      },
+      {
+        "elements": [
+          "Cl",
+          "Mg"
+        ],
+        "example": "MgCl2"
+      },
+      {
+        "elements": [
+          "Cl",
+          "Na"
+        ],
+        "example": "NaCl"
+      },
+      {
+        "elements": [
+          "Cl",
+          "P"
+        ],
+        "example": "PCl3"
+      },
+      {
+        "elements": [
+          "Cl",
+          "Si"
+        ],
+        "example": "SiCl4"
+      },
+      {
+        "elements": [
+          "Cl",
+          "Zn"
+        ],
+        "example": "ZnCl2"
+      },
+      {
+        "elements": [
+          "Cu",
+          "F"
+        ],
+        "example": "CuF2"
+      },
+      {
+        "elements": [
+          "Cu",
+          "I"
+        ],
+        "example": "CuI"
+      },
+      {
+        "elements": [
+          "Cu",
+          "O"
+        ],
+        "example": "CuO"
+      },
+      {
+        "elements": [
+          "Cu",
+          "S"
+        ],
+        "example": "CuS"
+      },
+      {
+        "elements": [
+          "F",
+          "Fe"
+        ],
+        "example": "FeF3"
+      },
+      {
+        "elements": [
+          "F",
+          "H"
+        ],
+        "example": "HF"
+      },
+      {
+        "elements": [
+          "F",
+          "I"
+        ],
+        "example": "IF5"
+      },
+      {
+        "elements": [
+          "F",
+          "K"
+        ],
+        "example": "KF"
+      },
+      {
+        "elements": [
+          "F",
+          "Li"
+        ],
+        "example": "LiF"
+      },
+      {
+        "elements": [
+          "F",
+          "Mg"
+        ],
+        "example": "MgF2"
+      },
+      {
+        "elements": [
+          "F",
+          "Na"
+        ],
+        "example": "NaF"
+      },
+      {
+        "elements": [
+          "F",
+          "Si"
+        ],
+        "example": "SiF4"
+      },
+      {
+        "elements": [
+          "F",
+          "Zn"
+        ],
+        "example": "ZnF2"
+      },
+      {
+        "elements": [
+          "Fe",
+          "O"
+        ],
+        "example": "Fe2O3"
+      },
+      {
+        "elements": [
+          "Fe",
+          "S"
+        ],
+        "example": "FeS"
+      },
+      {
+        "elements": [
+          "H",
+          "I"
+        ],
+        "example": "HI"
+      },
+      {
+        "elements": [
+          "H",
+          "K"
+        ],
+        "example": "KH"
+      },
+      {
+        "elements": [
+          "H",
+          "Li"
+        ],
+        "example": "LiH"
+      },
+      {
+        "elements": [
+          "H",
+          "Mg"
+        ],
+        "example": "MgH2"
+      },
+      {
+        "elements": [
+          "H",
+          "N"
+        ],
+        "example": "NH3"
+      },
+      {
+        "elements": [
+          "H",
+          "Na"
+        ],
+        "example": "NaH"
+      },
+      {
+        "elements": [
+          "H",
+          "O"
+        ],
+        "example": "H2O"
+      },
+      {
+        "elements": [
+          "H",
+          "P"
+        ],
+        "example": "PH3"
+      },
+      {
+        "elements": [
+          "H",
+          "S"
+        ],
+        "example": "H2S"
+      },
+      {
+        "elements": [
+          "I",
+          "K"
+        ],
+        "example": "KI"
+      },
+      {
+        "elements": [
+          "I",
+          "Li"
+        ],
+        "example": "LiI"
+      },
+      {
+        "elements": [
+          "I",
+          "Mg"
+        ],
+        "example": "MgI2"
+      },
+      {
+        "elements": [
+          "I",
+          "Na"
+        ],
+        "example": "NaI"
+      },
+      {
+        "elements": [
+          "I",
+          "Zn"
+        ],
+        "example": "ZnI2"
+      },
+      {
+        "elements": [
+          "K",
+          "O"
+        ],
+        "example": "K2O"
+      },
+      {
+        "elements": [
+          "Li",
+          "O"
+        ],
+        "example": "Li2O"
+      },
+      {
+        "elements": [
+          "Mg",
+          "N"
+        ],
+        "example": "Mg3N2"
+      },
+      {
+        "elements": [
+          "Mg",
+          "O"
+        ],
+        "example": "MgO"
+      },
+      {
+        "elements": [
+          "Mg",
+          "S"
+        ],
+        "example": "MgS"
+      },
+      {
+        "elements": [
+          "N",
+          "O"
+        ],
+        "example": "NO2"
+      },
+      {
+        "elements": [
+          "Na",
+          "O"
+        ],
+        "example": "Na2O"
+      },
+      {
+        "elements": [
+          "O",
+          "P"
+        ],
+        "example": "P2O5"
+      },
+      {
+        "elements": [
+          "O",
+          "S"
+        ],
+        "example": "SO2"
+      },
+      {
+        "elements": [
+          "O",
+          "Si"
+        ],
+        "example": "SiO2"
+      },
+      {
+        "elements": [
+          "O",
+          "Zn"
+        ],
+        "example": "ZnO"
+      },
+      {
+        "elements": [
+          "S",
+          "Zn"
+        ],
+        "example": "ZnS"
+      }
+    ],
+    "ternary": [
+      {
+        "elements": [
+          "Ag",
+          "C",
+          "O"
+        ],
+        "example": "Ag carbonate"
+      },
+      {
+        "elements": [
+          "Ag",
+          "H",
+          "O"
+        ],
+        "example": "AgOH (hydroxide)"
+      },
+      {
+        "elements": [
+          "Ag",
+          "N",
+          "O"
+        ],
+        "example": "Ag nitrate"
+      },
+      {
+        "elements": [
+          "Ag",
+          "O",
+          "P"
+        ],
+        "example": "Ag phosphate"
+      },
+      {
+        "elements": [
+          "Ag",
+          "O",
+          "S"
+        ],
+        "example": "Ag sulfate"
+      },
+      {
+        "elements": [
+          "Al",
+          "H",
+          "O"
+        ],
+        "example": "AlOH (hydroxide)"
+      },
+      {
+        "elements": [
+          "Al",
+          "O",
+          "P"
+        ],
+        "example": "Al phosphate"
+      },
+      {
+        "elements": [
+          "Al",
+          "O",
+          "S"
+        ],
+        "example": "Al sulfate"
+      },
+      {
+        "elements": [
+          "Br",
+          "H",
+          "N"
+        ],
+        "example": "ammonium bromide"
+      },
+      {
+        "elements": [
+          "C",
+          "Ca",
+          "O"
+        ],
+        "example": "Ca carbonate"
+      },
+      {
+        "elements": [
+          "C",
+          "Cl",
+          "H"
+        ],
+        "example": "alkyl chlorides"
+      },
+      {
+        "elements": [
+          "C",
+          "Fe",
+          "O"
+        ],
+        "example": "Fe carbonate"
+      },
+      {
+        "elements": [
+          "C",
+          "H",
+          "N"
+        ],
+        "example": "amines/amides"
+      },
+      {
+        "elements": [
+          "C",
+          "H",
+          "O"
+        ],
+        "example": "alcohols/aldehydes/acids"
+      },
+      {
+        "elements": [
+          "C",
+          "K",
+          "O"
+        ],
+        "example": "K carbonate"
+      },
+      {
+        "elements": [
+          "C",
+          "Mg",
+          "O"
+        ],
+        "example": "Mg carbonate"
+      },
+      {
+        "elements": [
+          "C",
+          "Na",
+          "O"
+        ],
+        "example": "Na carbonate"
+      },
+      {
+        "elements": [
+          "C",
+          "O",
+          "Zn"
+        ],
+        "example": "Zn carbonate"
+      },
+      {
+        "elements": [
+          "Ca",
+          "H",
+          "O"
+        ],
+        "example": "CaOH (hydroxide)"
+      },
+      {
+        "elements": [
+          "Ca",
+          "N",
+          "O"
+        ],
+        "example": "Ca nitrate"
+      },
+      {
+        "elements": [
+          "Ca",
+          "O",
+          "P"
+        ],
+        "example": "Ca phosphate"
+      },
+      {
+        "elements": [
+          "Ca",
+          "O",
+          "S"
+        ],
+        "example": "Ca sulfate"
+      },
+      {
+        "elements": [
+          "Cl",
+          "H",
+          "N"
+        ],
+        "example": "ammonium chloride"
+      },
+      {
+        "elements": [
+          "Cu",
+          "H",
+          "O"
+        ],
+        "example": "CuOH (hydroxide)"
+      },
+      {
+        "elements": [
+          "Cu",
+          "N",
+          "O"
+        ],
+        "example": "Cu nitrate"
+      },
+      {
+        "elements": [
+          "Cu",
+          "O",
+          "S"
+        ],
+        "example": "Cu sulfate"
+      },
+      {
+        "elements": [
+          "F",
+          "H",
+          "N"
+        ],
+        "example": "ammonium fluoride"
+      },
+      {
+        "elements": [
+          "Fe",
+          "H",
+          "O"
+        ],
+        "example": "FeOH (hydroxide)"
+      },
+      {
+        "elements": [
+          "Fe",
+          "N",
+          "O"
+        ],
+        "example": "Fe nitrate"
+      },
+      {
+        "elements": [
+          "Fe",
+          "O",
+          "P"
+        ],
+        "example": "Fe phosphate"
+      },
+      {
+        "elements": [
+          "Fe",
+          "O",
+          "S"
+        ],
+        "example": "Fe sulfate"
+      },
+      {
+        "elements": [
+          "H",
+          "I",
+          "N"
+        ],
+        "example": "ammonium iodide"
+      },
+      {
+        "elements": [
+          "H",
+          "K",
+          "O"
+        ],
+        "example": "KOH (hydroxide)"
+      },
+      {
+        "elements": [
+          "H",
+          "Li",
+          "O"
+        ],
+        "example": "LiOH (hydroxide)"
+      },
+      {
+        "elements": [
+          "H",
+          "Mg",
+          "O"
+        ],
+        "example": "MgOH (hydroxide)"
+      },
+      {
+        "elements": [
+          "H",
+          "N",
+          "O"
+        ],
+        "example": "nitric acid family"
+      },
+      {
+        "elements": [
+          "H",
+          "Na",
+          "O"
+        ],
+        "example": "NaOH (hydroxide)"
+      },
+      {
+        "elements": [
+          "H",
+          "O",
+          "P"
+        ],
+        "example": "phosphoric acid family"
+      },
+      {
+        "elements": [
+          "H",
+          "O",
+          "S"
+        ],
+        "example": "sulfurous/sulfuric acid family"
+      },
+      {
+        "elements": [
+          "H",
+          "O",
+          "Zn"
+        ],
+        "example": "ZnOH (hydroxide)"
+      },
+      {
+        "elements": [
+          "K",
+          "N",
+          "O"
+        ],
+        "example": "K nitrate"
+      },
+      {
+        "elements": [
+          "K",
+          "O",
+          "P"
+        ],
+        "example": "K phosphate"
+      },
+      {
+        "elements": [
+          "K",
+          "O",
+          "S"
+        ],
+        "example": "K sulfate"
+      },
+      {
+        "elements": [
+          "Mg",
+          "N",
+          "O"
+        ],
+        "example": "Mg nitrate"
+      },
+      {
+        "elements": [
+          "Mg",
+          "O",
+          "P"
+        ],
+        "example": "Mg phosphate"
+      },
+      {
+        "elements": [
+          "Mg",
+          "O",
+          "S"
+        ],
+        "example": "Mg sulfate"
+      },
+      {
+        "elements": [
+          "N",
+          "Na",
+          "O"
+        ],
+        "example": "Na nitrate"
+      },
+      {
+        "elements": [
+          "N",
+          "O",
+          "Zn"
+        ],
+        "example": "Zn nitrate"
+      },
+      {
+        "elements": [
+          "Na",
+          "O",
+          "P"
+        ],
+        "example": "Na phosphate"
+      },
+      {
+        "elements": [
+          "Na",
+          "O",
+          "S"
+        ],
+        "example": "Na sulfate"
+      },
+      {
+        "elements": [
+          "O",
+          "P",
+          "Zn"
+        ],
+        "example": "Zn phosphate"
+      },
+      {
+        "elements": [
+          "O",
+          "S",
+          "Zn"
+        ],
+        "example": "Zn sulfate"
+      }
+    ],
+    "quaternary": [
+      {
+        "elements": [
+          "C",
+          "Cu",
+          "H",
+          "O"
+        ],
+        "example": "copper(II) acetate family"
+      },
+      {
+        "elements": [
+          "C",
+          "Fe",
+          "H",
+          "O"
+        ],
+        "example": "iron(II) acetate family"
+      },
+      {
+        "elements": [
+          "C",
+          "H",
+          "K",
+          "O"
+        ],
+        "example": "potassium acetate & related salts"
+      },
+      {
+        "elements": [
+          "C",
+          "H",
+          "Na",
+          "O"
+        ],
+        "example": "sodium acetate & related salts"
+      },
+      {
+        "elements": [
+          "C",
+          "H",
+          "O",
+          "Zn"
+        ],
+        "example": "zinc acetate family"
+      },
+      {
+        "elements": [
+          "Ca",
+          "H",
+          "O",
+          "P"
+        ],
+        "example": "calcium (hydrogen) phosphates"
+      }
+    ]
+  },
+  "rules_text_markdown": "# Card Chemistry — Full Rules\n\n## Components\n- **Deck (34 cards):** Elements from your *Standard Set*. Elements with 2 copies: H, O, Cl, C, N, S, Na, K, Ca, Fe, Cu, Zn. Singles: Li, Mg, Al, Ag, B, Si, F, Br, I, P.\n- **Discard (the “floor”):** A single face-up element card that anchors plays.\n- **Hands:** Each player’s private cards.\n\n> **Terminology:**  \n> - **Group match** = same periodic **group number** as the floor card.  \n> - **Reaction** = the floor element **together with** 1–3 cards from the active player form a **real compound family** in the reaction list (binary/ternary/quaternary combos).  \n> - **Distinct elements only** in a reaction (no duplicates of the same element type in one play).\n\n## Setup\n1. Shuffle the full deck.  \n2. Deal **5 cards** to each player (Player and AI).  \n3. Place the top card of the deck face up to start the **floor**.  \n4. Randomly pick a starting player (or alternate each new game).\n\n## Turn Structure\nOn your turn, do **exactly one** of the following:\n\n**A) Play**  \n- **Single-card (Group match):** Play **one** card that **shares a group** with the current floor card. This is *not* a reaction and **does not** penalize the opponent.  \n- **Reaction (2–4 cards total):** Select **1–3 cards** from your hand that, **together with the floor card**, appear in the allowed **reaction sets** (binary/ternary/quaternary).  \n  - All selected cards must be **distinct element types**.  \n  - Examples: Binary {Na, Cl}, {Fe, O}; Ternary {Na, H, O}, {K, N, O}, {Cu, S, O}, {C, H, Cl}; Quaternary {Ca, P, H, O}, {Na, C, H, O}.\n\n**B) Draw**  \n- If you **cannot** (or choose not to) play, draw **1 card** from the deck.  \n- **Immediate-play option:** If the drawn card enables a legal **single-card group match** or **reaction**, you **may** play it immediately; otherwise your turn ends. (Toggleable in settings.)\n\nThen end your turn.\n\n## What Happens After a Play\n- **New floor card:**  \n  - **Single-card group match:** the card you played becomes the new floor.  \n  - **Reaction:** after resolving the reaction, **choose one of the cards you played** to become the new floor (**not** the old floor card). If the UI needs a default, use “last selected.”\n- **Reaction reward:** Whenever you play a **reaction**, the **opponent draws 1 card** at the start of their next turn.\n- **One play per turn:** Even if another combo is available afterward, your turn ends once a play is completed.\n\n## Validity & Enforcement\n- **Reaction validity** is checked against the **allowed combo list** in this JSON. Order doesn’t matter.\n- **No duplicates in a combo** (e.g., ammonia is {H, N}, not H+H+H+N).\n- **The floor must be part of the reaction**.\n- **Group-match multi-drops are not allowed.** Multi-card plays must be **reactions** only.\n\n## Drawing & Reshuffling\n- If the **deck is empty** when a draw is required:  \n  1) Keep the **current floor** in place.  \n  2) Shuffle **all other** cards from the discard into a new draw pile.  \n  3) Continue the draw.\n\n## Win, Stalemate, and Ties\n- **Win:** The first player to reach **0 cards in hand** wins immediately.  \n- **Stalemate:** If the deck is empty **and** neither player can play or draw after a reshuffle, the round ends.  \n  - **Fewest cards in hand** wins; if tied, it’s a **draw** (or use a classroom tiebreaker such as “fewest total atoms played”).\n\n## UI/Controls (Pygame)\n- **Select cards** (click to toggle). Legal selections are **highlighted** when they form a combo with the floor.  \n- **Place card(s)** button: attempts the play in priority **Reaction > Single-card group match**.  \n- **Cancel selection** to back out.  \n- After a **reaction**, if multiple new-floor choices exist, prompt: “Choose the new floor.” Default to **last selected** if no choice is made.\n\n## AI & Turn Timing\n- AI follows exactly the same rules:  \n  1) If any **reaction** is available, prefer the one that **maximizes opponent draw pressure** and leaves a high-connectivity floor (O, Cl, H, etc.).  \n  2) Otherwise play a **single-card group match** that **maximizes future options**.  \n  3) Otherwise **draw**.\n- Optional: a **turn timer** (e.g., 30–45 seconds) for classroom pacing.\n\n## Options (easy toggles)\n- **Draw-and-play:** allow immediate play after drawing (default **on**).  \n- **Hydrogen group-match:** H counts as Group 1 for matching (default **on**).  \n- **Interhalogens:** keep {I,Cl}, {Br,Cl}, {I,Br}, {Cl,F}, {Br,F}, {I,F} (default **on**).  \n- **Reaction reward size:** opponent draws **1** (default); try **2** for higher-stakes mode.\n\n## Implementation Hook\nLet `F` be the floor element and `S` the set of selected cards.  \n- **Group match:** valid if `|S| = 1` and `group(S) == group(F)`.  \n- **Reaction:** valid if `1 ≤ |S| ≤ 3`, all elements in `S ∪ {F}` are **distinct**, and `sorted(S ∪ {F})` appears in **combos** (binary/ternary/quaternary).  \n- On success: if reaction → flag opponent to **draw 1** next turn; set **new floor** to a chosen card from `S`.",
+  "rules": {
+    "version": "1.0",
+    "single_player_vs_ai": true,
+    "components": {
+      "deck_size": 34,
+      "duplicates": [
+        "H",
+        "O",
+        "Cl",
+        "C",
+        "N",
+        "S",
+        "Na",
+        "K",
+        "Ca",
+        "Fe",
+        "Cu",
+        "Zn"
+      ],
+      "singles": [
+        "Li",
+        "Mg",
+        "Al",
+        "Ag",
+        "B",
+        "Si",
+        "F",
+        "Br",
+        "I",
+        "P"
+      ],
+      "notes": [
+        "Group matching uses the 'group' integer from each element entry.",
+        "Reactions must be present in combos.binary/ternary/quaternary."
+      ]
+    },
+    "setup": [
+      "Shuffle the full deck.",
+      "Deal 5 cards to each player (human, AI).",
+      "Flip one card face-up to the floor.",
+      "Randomly choose a starting player."
+    ],
+    "turn_structure": {
+      "play": {
+        "group_match": "Play exactly one card that shares the floor's group number (no opponent penalty).",
+        "reaction": "Play 1–3 distinct cards that, together with the floor, appear in allowed combos (2–4 elements total)."
+      },
+      "draw": "If you cannot or do not wish to play, draw 1 card. Optional immediate play if the drawn card enables a legal play.",
+      "end_of_turn": "Turn ends after one play or a draw."
+    },
+    "post_play": {
+      "new_floor": {
+        "group_match": "The played card becomes the new floor.",
+        "reaction": "Choose one of the cards you played to become the new floor (not the old floor). Default: last selected."
+      },
+      "reaction_reward": "Opponent draws 1 card at the start of their next turn.",
+      "one_play_per_turn": true
+    },
+    "validity": [
+      "Reaction validity checked against combos lists; order-agnostic.",
+      "No duplicate element types in a multi-card play.",
+      "The floor element must be included in every reaction.",
+      "Multi-card group-match plays are not allowed—multi-card plays must be reactions."
+    ],
+    "drawing_reshuffling": [
+      "If deck is empty when drawing, keep the floor, shuffle the rest of the discard into a new draw pile, and continue."
+    ],
+    "win_stalemate_ties": [
+      "Win: first to 0 cards in hand.",
+      "Stalemate: after reshuffle, if neither player can play or draw, round ends—fewest cards in hand wins; ties are draws."
+    ],
+    "ui_controls": [
+      "Click cards to select; highlight valid reaction selections.",
+      "Place button tries Reaction first, then single-card group match.",
+      "After a reaction, prompt for new floor choice; default to last selected."
+    ],
+    "ai_policy": [
+      "Prefer any reaction that forces opponent draw and leaves a high-connectivity floor (e.g., O/Cl/H).",
+      "Else play a group match that maximizes future options.",
+      "Else draw."
+    ],
+    "options": {
+      "draw_and_play": true,
+      "hydrogen_group_match": true,
+      "interhalogens_enabled": true,
+      "reaction_reward_size": 1
+    },
+    "validation_pseudocode": "valid = (len(S) == 1 and group(S)==group(F)) or (1 <= len(S) <= 3 and distinct(S) and sort(S∪{F}) in combos)"
+  }
+}
