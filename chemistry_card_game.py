@@ -8,6 +8,7 @@ import pygame
 import json
 import random
 import sys
+import asyncio
 from typing import List, Dict, Set, Tuple, Optional
 from dataclasses import dataclass
 from enum import Enum
@@ -325,8 +326,6 @@ class GameState:
         self.game_over = False
         self.winner = None
         self.message = "Welcome! Select cards to play a reaction or match the group."
-        self.waiting_for_floor_choice = False
-        self.played_cards_for_floor: List[Card] = []
 
     def start_new_game(self):
         """Initialize a new game"""
@@ -345,8 +344,6 @@ class GameState:
         self.selected_cards = []
         self.game_over = False
         self.winner = None
-        self.waiting_for_floor_choice = False
-        self.played_cards_for_floor = []
         self.message = f"{self.current_player.title()}'s turn!"
 
         # If AI starts, let it play
@@ -389,18 +386,18 @@ class GameState:
             # Discard old floor
             self.deck.discard(self.floor_card)
 
-            # Need to choose new floor from played cards
-            if len(self.selected_cards) == 1:
-                self.floor_card = self.selected_cards[0]
-                self.selected_cards = []
-                self.check_win()
-                self.end_turn()
-            else:
-                # Multiple cards - need to choose
-                self.waiting_for_floor_choice = True
-                self.played_cards_for_floor = self.selected_cards.copy()
-                self.selected_cards = []
-                self.message += " - Choose new floor card!"
+            # Randomly choose new floor from played cards
+            new_floor = random.choice(self.selected_cards)
+            self.floor_card = new_floor
+
+            # Discard other played cards
+            for card in self.selected_cards:
+                if card != new_floor:
+                    self.deck.discard(card)
+
+            self.selected_cards = []
+            self.check_win()
+            self.end_turn()
 
             return True
 
@@ -426,20 +423,6 @@ class GameState:
 
         self.message = "Invalid play! Try a reaction or group match."
         return False
-
-    def choose_floor_card(self, card: Card):
-        """Choose new floor card after reaction"""
-        if card in self.played_cards_for_floor:
-            self.floor_card = card
-            # Discard other played cards
-            for c in self.played_cards_for_floor:
-                if c != card:
-                    self.deck.discard(c)
-
-            self.waiting_for_floor_choice = False
-            self.played_cards_for_floor = []
-            self.check_win()
-            self.end_turn()
 
     def player_draw(self):
         """Player draws a card"""
@@ -646,7 +629,7 @@ class ChemistryCardGame:
 
     def __init__(self):
         self.screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-        pygame.display.set_caption("Chemistry Card Game")
+        pygame.display.set_caption("Chemistry Uno")
         self.clock = pygame.time.Clock()
 
         # UI Fonts (larger for readability, 20% smaller than 3x)
@@ -654,6 +637,7 @@ class ChemistryCardGame:
         self.font_medium = pygame.font.Font(None, 77)
         self.font_small = pygame.font.Font(None, 48)
         self.font_tiny = pygame.font.Font(None, 38)
+        self.font_rules = pygame.font.Font(None, 25)  # Smaller font for rules box
 
         # Card-specific fonts (kept small)
         self.card_symbol_font = pygame.font.Font(None, 48)
@@ -683,10 +667,13 @@ class ChemistryCardGame:
         # New game button in top right corner
         self.new_game_button = Button(SCREEN_WIDTH - 220, 20, 200, 50,
                                        "New Game", COLORS['warning'])
+        # Play again button for game over screen (centered)
+        self.play_again_button = Button(SCREEN_WIDTH // 2 - 150, SCREEN_HEIGHT // 2 + 50, 300, 60,
+                                        "Play Again", COLORS['success'])
 
         # Start game
         self.ai_turn_timer = 0
-        self.ai_turn_delay = 1.5  # Seconds before AI plays
+        self.ai_turn_delay = 2.2  # Seconds before AI plays
 
         needs_ai_turn = self.state.start_new_game()
         self.update_sprites()
@@ -722,15 +709,6 @@ class ChemistryCardGame:
             rect = pygame.Rect(ai_start_x + i * 110, 200, 100, 140)
             self.ai_card_backs.append(rect)
 
-        # Update floor choice sprites if waiting
-        if self.state.waiting_for_floor_choice:
-            self.card_sprites = []
-            choice_width = len(self.state.played_cards_for_floor) * 110
-            choice_x = (SCREEN_WIDTH - choice_width) // 2
-
-            for i, card in enumerate(self.state.played_cards_for_floor):
-                sprite = CardSprite(card, choice_x + i * 110, SCREEN_HEIGHT // 2 + 100)
-                self.card_sprites.append(sprite)
 
     def handle_events(self):
         """Handle input events"""
@@ -740,14 +718,6 @@ class ChemistryCardGame:
 
             # Skip input if AI's turn
             if self.state.current_player == 'ai' and not self.state.game_over:
-                continue
-
-            # Handle floor choice
-            if self.state.waiting_for_floor_choice:
-                for sprite in self.card_sprites:
-                    if sprite.handle_event(event):
-                        self.state.choose_floor_card(sprite.card)
-                        self.update_sprites()
                 continue
 
             # Handle card selection
@@ -761,7 +731,7 @@ class ChemistryCardGame:
                 if self.state.current_player == 'player' and not self.state.game_over:
                     if self.state.try_play():
                         self.update_sprites()
-                        # Check if AI's turn now
+                        # Check if AI's turn now and start AI timer
                         if self.state.current_player == 'ai' and not self.state.game_over:
                             self.ai_turn_timer = self.ai_turn_delay
 
@@ -786,6 +756,15 @@ class ChemistryCardGame:
                 else:
                     self.ai_turn_timer = 0
 
+            if self.play_again_button.handle_event(event):
+                if self.state.game_over:
+                    needs_ai_turn = self.state.start_new_game()
+                    self.update_sprites()
+                    if needs_ai_turn:
+                        self.ai_turn_timer = self.ai_turn_delay
+                    else:
+                        self.ai_turn_timer = 0
+
         return True
 
     def update(self, dt: float):
@@ -804,9 +783,9 @@ class ChemistryCardGame:
         self.screen.fill(COLORS['background'])
 
         # Title
-        title_text = "Chemistry Card Game"
+        title_text = "Chemistry Uno"
         title_surf = self.font_large.render(title_text, True, COLORS['text'])
-        title_rect = title_surf.get_rect(center=(SCREEN_WIDTH // 2, 30))
+        title_rect = title_surf.get_rect(center=(SCREEN_WIDTH // 2, 45))
         self.screen.blit(title_surf, title_rect)
 
         # Game info panel
@@ -822,15 +801,37 @@ class ChemistryCardGame:
         discard_surf = self.font_tiny.render(discard_text, True, COLORS['text'])
         self.screen.blit(discard_surf, (50, info_y + 60))
 
-        # Player hand count
+        # Card counts
         player_count = f"Your cards: {len(self.state.player_hand)}"
         player_surf = self.font_tiny.render(player_count, True, COLORS['success'])
-        self.screen.blit(player_surf, (SCREEN_WIDTH - 300, SCREEN_HEIGHT - 360))
+        self.screen.blit(player_surf, (50, info_y + 120))
 
-        # AI hand count
         ai_count = f"AI cards: {len(self.state.ai_hand)}"
         ai_surf = self.font_tiny.render(ai_count, True, COLORS['danger'])
-        self.screen.blit(ai_surf, (SCREEN_WIDTH - 300, 360))
+        self.screen.blit(ai_surf, (50, info_y + 180))
+
+        # Rules box (right side, center-aligned with floor card)
+        rules_box = pygame.Rect(SCREEN_WIDTH - 314, SCREEN_HEIGHT // 2 - 120, 294, 240)
+        pygame.draw.rect(self.screen, COLORS['ui_bg'], rules_box, border_radius=8)
+        pygame.draw.rect(self.screen, COLORS['accent'], rules_box, 2, border_radius=8)
+
+        # Rules title
+        rules_title = self.font_small.render("Quick Rules:", True, COLORS['text'])
+        self.screen.blit(rules_title, (rules_box.x + 15, rules_box.y + 15))
+
+        # Rules text (with smaller font and line breaks)
+        rules = [
+            "• Match group OR form",
+            "  a reaction",
+            "• Reactions: 2-4 elements",
+            "  = compound",
+            "• First to 0 cards wins!",
+            "• 10+ cards = instant loss"
+        ]
+        line_height = 28
+        for i, rule in enumerate(rules):
+            rule_surf = self.font_rules.render(rule, True, COLORS['text'])
+            self.screen.blit(rule_surf, (rules_box.x + 15, rules_box.y + 65 + i * line_height))
 
         # Draw AI card backs
         for rect in self.ai_card_backs:
@@ -850,14 +851,7 @@ class ChemistryCardGame:
 
             self.floor_sprite.draw(self.screen, self.card_symbol_font, self.card_text_font)
 
-        # Draw player cards or floor choice
-        if self.state.waiting_for_floor_choice:
-            # Floor choice prompt
-            prompt = "Choose which card becomes the new floor:"
-            prompt_surf = self.font_medium.render(prompt, True, COLORS['warning'])
-            prompt_rect = prompt_surf.get_rect(center=(SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2 + 50))
-            self.screen.blit(prompt_surf, prompt_rect)
-
+        # Draw player cards
         for sprite in self.card_sprites:
             sprite.draw(self.screen, self.card_symbol_font, self.card_text_font)
 
@@ -887,11 +881,9 @@ class ChemistryCardGame:
             self.screen.blit(msg_surf, (msg_bg.x + 20, msg_bg.y + 15 + i * 50))
 
         # Draw buttons
-        if not self.state.waiting_for_floor_choice:
-            self.play_button.draw(self.screen, self.font_small)
-            self.draw_button.draw(self.screen, self.font_small)
-            self.clear_button.draw(self.screen, self.font_small)
-
+        self.play_button.draw(self.screen, self.font_small)
+        self.draw_button.draw(self.screen, self.font_small)
+        self.clear_button.draw(self.screen, self.font_small)
         self.new_game_button.draw(self.screen, self.font_small)
 
         # Turn indicator - beneath title
@@ -913,18 +905,21 @@ class ChemistryCardGame:
                                                   COLORS['success'] if self.state.winner == 'player'
                                                   else COLORS['danger'] if self.state.winner == 'ai'
                                                   else COLORS['warning'])
-            result_rect = result_surf.get_rect(center=(SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2))
+            result_rect = result_surf.get_rect(center=(SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2 - 40))
             self.screen.blit(result_surf, result_rect)
 
-            instruction_surf = self.font_small.render("Click 'New Game' to play again",
-                                                      True, COLORS['text'])
-            instruction_rect = instruction_surf.get_rect(center=(SCREEN_WIDTH // 2,
-                                                                  SCREEN_HEIGHT // 2 + 60))
-            self.screen.blit(instruction_surf, instruction_rect)
+            # Draw Play Again button
+            self.play_again_button.draw(self.screen, self.font_medium)
+
+        # Game design credit (bottom right)
+        credit_text = "Game design by N.Siwatkittisuk"
+        credit_surf = self.font_tiny.render(credit_text, True, COLORS['text'])
+        credit_rect = credit_surf.get_rect(bottomright=(SCREEN_WIDTH - 20, SCREEN_HEIGHT - 10))
+        self.screen.blit(credit_surf, credit_rect)
 
         pygame.display.flip()
 
-    def run(self):
+    async def run(self):
         """Main game loop"""
         running = True
         while running:
@@ -934,15 +929,17 @@ class ChemistryCardGame:
             self.update(dt)
             self.draw()
 
+            # Yield control to browser
+            await asyncio.sleep(0)
+
         pygame.quit()
-        sys.exit()
 
 
-def main():
+async def main():
     """Entry point"""
     game = ChemistryCardGame()
-    game.run()
+    await game.run()
 
 
 if __name__ == "__main__":
-    main()
+    asyncio.run(main())

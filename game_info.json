@@ -1,7 +1,7 @@
 {
   "metadata": {
     "deck_name": "Chemistry Reactivity — Standard Classroom Set",
-    "description": "A 34-card deck built from 22 element types. Some high-connectivity elements have 2 copies (H, O, Cl, C, N, S, Na, K, Ca, Fe, Cu, Zn). Singles for Li, Mg, Al, Ag, B, Si, F, Br, I, P. Legal plays: match by group OR play any set of 2–4 distinct elements that forms a real compound family.",
+    "description": "A 35-card deck built from 22 element types. H×3 and O×5 as top reaction hubs, duplicates for high-connectivity elements (C×2, N×2, S×2, Na×2, K×2, Ca×2, Fe×2), and singles for others (Zn, Cu, Cl, Li, Mg, Al, Ag, B, Si, F, Br, I, P). Legal plays: match by group OR play any set of 2–4 distinct elements that forms a real compound family.",
     "rules_notes": [
       "Multi-card plays may include at most one of each element type (no stoichiometric repeats)."
     ],
@@ -128,7 +128,7 @@
       "group": 11,
       "family": "transition metal",
       "category": "metal",
-      "count": 2,
+      "count": 1,
       "binary_partners": [
         "Br",
         "Cl",
@@ -144,7 +144,7 @@
       "group": 12,
       "family": "transition metal",
       "category": "metal",
-      "count": 2,
+      "count": 1,
       "binary_partners": [
         "Br",
         "Cl",
@@ -202,7 +202,7 @@
       "group": 1,
       "family": "-",
       "category": "nonmetal",
-      "count": 2,
+      "count": 3,
       "binary_partners": [
         "Br",
         "C",
@@ -255,7 +255,7 @@
       "group": 16,
       "family": "chalcogen",
       "category": "nonmetal",
-      "count": 2,
+      "count": 5,
       "binary_partners": [
         "Ag",
         "Al",
@@ -308,7 +308,7 @@
       "group": 17,
       "family": "halogen",
       "category": "nonmetal",
-      "count": 2,
+      "count": 1,
       "binary_partners": [
         "Ag",
         "Al",
@@ -1526,27 +1526,31 @@
       }
     ]
   },
-  "rules_text_markdown": "# Card Chemistry — Full Rules\n\n## Components\n- **Deck (34 cards):** Elements from your *Standard Set*. Elements with 2 copies: H, O, Cl, C, N, S, Na, K, Ca, Fe, Cu, Zn. Singles: Li, Mg, Al, Ag, B, Si, F, Br, I, P.\n- **Discard (the “floor”):** A single face-up element card that anchors plays.\n- **Hands:** Each player’s private cards.\n\n> **Terminology:**  \n> - **Group match** = same periodic **group number** as the floor card.  \n> - **Reaction** = the floor element **together with** 1–3 cards from the active player form a **real compound family** in the reaction list (binary/ternary/quaternary combos).  \n> - **Distinct elements only** in a reaction (no duplicates of the same element type in one play).\n\n## Setup\n1. Shuffle the full deck.  \n2. Deal **5 cards** to each player (Player and AI).  \n3. Place the top card of the deck face up to start the **floor**.  \n4. Randomly pick a starting player (or alternate each new game).\n\n## Turn Structure\nOn your turn, do **exactly one** of the following:\n\n**A) Play**  \n- **Single-card (Group match):** Play **one** card that **shares a group** with the current floor card. This is *not* a reaction and **does not** penalize the opponent.  \n- **Reaction (2–4 cards total):** Select **1–3 cards** from your hand that, **together with the floor card**, appear in the allowed **reaction sets** (binary/ternary/quaternary).  \n  - All selected cards must be **distinct element types**.  \n  - Examples: Binary {Na, Cl}, {Fe, O}; Ternary {Na, H, O}, {K, N, O}, {Cu, S, O}, {C, H, Cl}; Quaternary {Ca, P, H, O}, {Na, C, H, O}.\n\n**B) Draw**  \n- If you **cannot** (or choose not to) play, draw **1 card** from the deck.  \n- **Immediate-play option:** If the drawn card enables a legal **single-card group match** or **reaction**, you **may** play it immediately; otherwise your turn ends. (Toggleable in settings.)\n\nThen end your turn.\n\n## What Happens After a Play\n- **New floor card:**  \n  - **Single-card group match:** the card you played becomes the new floor.  \n  - **Reaction:** after resolving the reaction, **choose one of the cards you played** to become the new floor (**not** the old floor card). If the UI needs a default, use “last selected.”\n- **Reaction reward:** Whenever you play a **reaction**, the **opponent draws 1 card** at the start of their next turn.\n- **One play per turn:** Even if another combo is available afterward, your turn ends once a play is completed.\n\n## Validity & Enforcement\n- **Reaction validity** is checked against the **allowed combo list** in this JSON. Order doesn’t matter.\n- **No duplicates in a combo** (e.g., ammonia is {H, N}, not H+H+H+N).\n- **The floor must be part of the reaction**.\n- **Group-match multi-drops are not allowed.** Multi-card plays must be **reactions** only.\n\n## Drawing & Reshuffling\n- If the **deck is empty** when a draw is required:  \n  1) Keep the **current floor** in place.  \n  2) Shuffle **all other** cards from the discard into a new draw pile.  \n  3) Continue the draw.\n\n## Win, Stalemate, and Ties\n- **Win:** The first player to reach **0 cards in hand** wins immediately.  \n- **Stalemate:** If the deck is empty **and** neither player can play or draw after a reshuffle, the round ends.  \n  - **Fewest cards in hand** wins; if tied, it’s a **draw** (or use a classroom tiebreaker such as “fewest total atoms played”).\n\n## UI/Controls (Pygame)\n- **Select cards** (click to toggle). Legal selections are **highlighted** when they form a combo with the floor.  \n- **Place card(s)** button: attempts the play in priority **Reaction > Single-card group match**.  \n- **Cancel selection** to back out.  \n- After a **reaction**, if multiple new-floor choices exist, prompt: “Choose the new floor.” Default to **last selected** if no choice is made.\n\n## AI & Turn Timing\n- AI follows exactly the same rules:  \n  1) If any **reaction** is available, prefer the one that **maximizes opponent draw pressure** and leaves a high-connectivity floor (O, Cl, H, etc.).  \n  2) Otherwise play a **single-card group match** that **maximizes future options**.  \n  3) Otherwise **draw**.\n- Optional: a **turn timer** (e.g., 30–45 seconds) for classroom pacing.\n\n## Options (easy toggles)\n- **Draw-and-play:** allow immediate play after drawing (default **on**).  \n- **Hydrogen group-match:** H counts as Group 1 for matching (default **on**).  \n- **Interhalogens:** keep {I,Cl}, {Br,Cl}, {I,Br}, {Cl,F}, {Br,F}, {I,F} (default **on**).  \n- **Reaction reward size:** opponent draws **1** (default); try **2** for higher-stakes mode.\n\n## Implementation Hook\nLet `F` be the floor element and `S` the set of selected cards.  \n- **Group match:** valid if `|S| = 1` and `group(S) == group(F)`.  \n- **Reaction:** valid if `1 ≤ |S| ≤ 3`, all elements in `S ∪ {F}` are **distinct**, and `sorted(S ∪ {F})` appears in **combos** (binary/ternary/quaternary).  \n- On success: if reaction → flag opponent to **draw 1** next turn; set **new floor** to a chosen card from `S`.",
+  "rules_text_markdown": "# Card Chemistry — Full Rules\n\n## Components\n- **Deck (35 cards):** Elements from your *Standard Set*. H×3, O×5 (top reaction hubs). Elements with 2 copies: C, N, S, Na, K, Ca, Fe. Singles: Zn, Cu, Cl, Li, Mg, Al, Ag, B, Si, F, Br, I, P.\n- **Discard (the “floor”):** A single face-up element card that anchors plays.\n- **Hands:** Each player’s private cards.\n\n> **Terminology:**  \n> - **Group match** = same periodic **group number** as the floor card.  \n> - **Reaction** = the floor element **together with** 1–3 cards from the active player form a **real compound family** in the reaction list (binary/ternary/quaternary combos).  \n> - **Distinct elements only** in a reaction (no duplicates of the same element type in one play).\n\n## Setup\n1. Shuffle the full deck.  \n2. Deal **5 cards** to each player (Player and AI).  \n3. Place the top card of the deck face up to start the **floor**.  \n4. Randomly pick a starting player (or alternate each new game).\n\n## Turn Structure\nOn your turn, do **exactly one** of the following:\n\n**A) Play**  \n- **Single-card (Group match):** Play **one** card that **shares a group** with the current floor card. This is *not* a reaction and **does not** penalize the opponent.  \n- **Reaction (2–4 cards total):** Select **1–3 cards** from your hand that, **together with the floor card**, appear in the allowed **reaction sets** (binary/ternary/quaternary).  \n  - All selected cards must be **distinct element types**.  \n  - Examples: Binary {Na, Cl}, {Fe, O}; Ternary {Na, H, O}, {K, N, O}, {Cu, S, O}, {C, H, Cl}; Quaternary {Ca, P, H, O}, {Na, C, H, O}.\n\n**B) Draw**  \n- If you **cannot** (or choose not to) play, draw **1 card** from the deck.  \n- **Immediate-play option:** If the drawn card enables a legal **single-card group match** or **reaction**, you **may** play it immediately; otherwise your turn ends. (Toggleable in settings.)\n\nThen end your turn.\n\n## What Happens After a Play\n- **New floor card:**  \n  - **Single-card group match:** the card you played becomes the new floor.  \n  - **Reaction:** after resolving the reaction, **choose one of the cards you played** to become the new floor (**not** the old floor card). If the UI needs a default, use “last selected.”\n- **Reaction reward:** Whenever you play a **reaction**, the **opponent draws 1 card** at the start of their next turn.\n- **One play per turn:** Even if another combo is available afterward, your turn ends once a play is completed.\n\n## Validity & Enforcement\n- **Reaction validity** is checked against the **allowed combo list** in this JSON. Order doesn’t matter.\n- **No duplicates in a combo** (e.g., ammonia is {H, N}, not H+H+H+N).\n- **The floor must be part of the reaction**.\n- **Group-match multi-drops are not allowed.** Multi-card plays must be **reactions** only.\n\n## Drawing & Reshuffling\n- If the **deck is empty** when a draw is required:  \n  1) Keep the **current floor** in place.  \n  2) Shuffle **all other** cards from the discard into a new draw pile.  \n  3) Continue the draw.\n\n## Win, Stalemate, and Ties\n- **Win:** The first player to reach **0 cards in hand** wins immediately.  \n- **Stalemate:** If the deck is empty **and** neither player can play or draw after a reshuffle, the round ends.  \n  - **Fewest cards in hand** wins; if tied, it’s a **draw** (or use a classroom tiebreaker such as “fewest total atoms played”).\n\n## UI/Controls (Pygame)\n- **Select cards** (click to toggle). Legal selections are **highlighted** when they form a combo with the floor.  \n- **Place card(s)** button: attempts the play in priority **Reaction > Single-card group match**.  \n- **Cancel selection** to back out.  \n- After a **reaction**, if multiple new-floor choices exist, prompt: “Choose the new floor.” Default to **last selected** if no choice is made.\n\n## AI & Turn Timing\n- AI follows exactly the same rules:  \n  1) If any **reaction** is available, prefer the one that **maximizes opponent draw pressure** and leaves a high-connectivity floor (O, Cl, H, etc.).  \n  2) Otherwise play a **single-card group match** that **maximizes future options**.  \n  3) Otherwise **draw**.\n- Optional: a **turn timer** (e.g., 30–45 seconds) for classroom pacing.\n\n## Options (easy toggles)\n- **Draw-and-play:** allow immediate play after drawing (default **on**).  \n- **Hydrogen group-match:** H counts as Group 1 for matching (default **on**).  \n- **Interhalogens:** keep {I,Cl}, {Br,Cl}, {I,Br}, {Cl,F}, {Br,F}, {I,F} (default **on**).  \n- **Reaction reward size:** opponent draws **1** (default); try **2** for higher-stakes mode.\n\n## Implementation Hook\nLet `F` be the floor element and `S` the set of selected cards.  \n- **Group match:** valid if `|S| = 1` and `group(S) == group(F)`.  \n- **Reaction:** valid if `1 ≤ |S| ≤ 3`, all elements in `S ∪ {F}` are **distinct**, and `sorted(S ∪ {F})` appears in **combos** (binary/ternary/quaternary).  \n- On success: if reaction → flag opponent to **draw 1** next turn; set **new floor** to a chosen card from `S`.",
   "rules": {
     "version": "1.0",
     "single_player_vs_ai": true,
     "components": {
-      "deck_size": 34,
+      "deck_size": 35,
+      "triples": [
+        "H"
+      ],
+      "quintuples": [
+        "O"
+      ],
       "duplicates": [
-        "H",
-        "O",
-        "Cl",
         "C",
         "N",
         "S",
         "Na",
         "K",
         "Ca",
-        "Fe",
-        "Cu",
-        "Zn"
+        "Fe"
       ],
       "singles": [
+        "Zn",
+        "Cu",
+        "Cl",
         "Li",
         "Mg",
         "Al",

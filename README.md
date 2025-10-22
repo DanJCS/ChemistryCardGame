@@ -4,7 +4,7 @@ An educational card game based on chemical elements and reactions, built with Py
 
 ## Features
 
-- **34-card deck** with 22 element types from the periodic table
+- **35-card deck** with 22 element types from the periodic table
 - **Smart AI opponent** that prioritizes reactions and strategic plays
 - **Beautiful periodic table-themed visuals** with color-coded element families
 - **Cards display:** element symbol, name, atomic number, and periodic group
@@ -39,7 +39,7 @@ You can either:
      - **Binary:** 2 elements (e.g., Na + Cl = NaCl)
      - **Ternary:** 3 elements (e.g., Na + H + O = NaOH)
      - **Quaternary:** 4 elements (e.g., Ca + H + O + P = calcium phosphate)
-   - After a reaction, choose which played card becomes the new floor
+   - After a reaction, one of your played cards is randomly selected as the new floor
    - Reactions allow you to play multiple cards at once, reducing your hand faster
 
 3. **Draw a Card:**
@@ -73,16 +73,42 @@ All reactions are validated against real chemistry!
 
 ## Installation
 
-### Requirements
+### Option 1: Play in Browser (Recommended)
+
+The game can be played directly in your web browser without installing anything!
+
+#### Quick Start
+```bash
+# Install pygbag
+pip install pygbag
+
+# Run the game in browser
+pygbag chemistry_card_game.py
+```
+
+Then open your browser to `http://localhost:8000`
+
+#### Deploy to Web (GitHub Pages, itch.io, etc.)
+```bash
+# Build for web deployment
+pygbag --build chemistry_card_game.py
+
+# This creates a 'build/web' directory with all files needed
+# Upload the contents to any web host
+```
+
+### Option 2: Run Locally (Desktop)
+
+#### Requirements
 - Python 3.7+
 - Pygame
 
-### Install Dependencies
+#### Install Dependencies
 ```bash
 pip install pygame
 ```
 
-### Run the Game
+#### Run the Game
 ```bash
 python3 chemistry_card_game.py
 ```
@@ -98,14 +124,18 @@ The deck includes elements from various periodic table families:
 - **Chalcogens** (Violet): O, S
 - **Other Nonmetals** (Green): H, C, N, P, B, Si
 
-High-connectivity elements (H, O, Cl, C, N, S, Na, K, Ca, Fe, Cu, Zn) appear twice in the deck for better gameplay balance.
+The deck features varied card counts optimized for gameplay:
+- **5 copies:** O (top reaction hub with 17 binary partners)
+- **3 copies:** H (high-connectivity hub)
+- **2 copies:** C, N, S, Na, K, Ca, Fe
+- **1 copy:** Zn, Cu, Cl, Li, Mg, Al, Ag, B, Si, F, Br, I, P
 
 ## Strategy Tips
 
 1. **Watch your hand size** - reaching 10 cards means instant loss! Use reactions strategically to reduce your hand
-2. **Save high-connectivity cards** (O, H, Cl) - they can form many reactions
+2. **Save high-connectivity cards** (O, H) - they can form many reactions with various elements
 3. **Reactions are powerful** - they let you play multiple cards at once, helping you empty your hand faster
-4. **Plan your floor card** - after a reaction, choose a floor that limits opponent's options
+4. **Oxygen is king** - with 5 copies in the deck and 17 binary partners, O appears in countless reactions
 5. **Monitor both card counts** - race to empty your hand while avoiding the 10-card penalty
 6. **Know your groups:**
    - Group 1: H, Li, Na, K
