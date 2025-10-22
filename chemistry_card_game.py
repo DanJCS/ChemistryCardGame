@@ -17,8 +17,8 @@ from enum import Enum
 pygame.init()
 
 # Constants
-SCREEN_WIDTH = 1400
-SCREEN_HEIGHT = 900
+SCREEN_WIDTH = 1024
+SCREEN_HEIGHT = 600
 FPS = 60
 
 # Colors - Professional periodic table themed palette
